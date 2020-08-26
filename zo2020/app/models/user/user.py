@@ -46,14 +46,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     
 
     '''
-
-    email = models.EmailField(unique=True)
-    temporary_password = models.CharField(max_length=50, blank=True)  
-
-    is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False) 
 
-    is_authorised = models.BooleanField(default=False) 
+    email = models.EmailField(unique=True)
+
+    is_active = models.BooleanField(default=True)
+
+    temporary_password = models.CharField(max_length=50, blank=True)  
+    is_verified = models.BooleanField(default=False) 
 
     objects = UserManager()
     USERNAME_FIELD = 'email'

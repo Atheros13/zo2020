@@ -32,12 +32,18 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="app\forms.py" />
+    <Compile Include="app\forms\forms.py" />
+    <Compile Include="app\forms\__init__.py" />
+    <Compile Include="app\models\account\__init__.py" />
+    <Compile Include="app\models\hub\__init__.py" />
+    <Compile Include="app\models\tournament\__init__.py" />
     <Compile Include="app\models\user\user.py" />
     <Compile Include="app\models\user\__init__.py" />
     <Compile Include="app\models\__init__.py" />
     <Compile Include="app\tests.py" />
-    <Compile Include="app\views.py" />
+    <Compile Include="app\urls\__init__.py" />
+    <Compile Include="app\views\views.py" />
+    <Compile Include="app\views\__init__.py" />
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
     <Compile Include="manage.py" />
@@ -53,7 +59,14 @@
     <Folder Include="app\" />
     <Folder Include="app\migrations\" />
     <Folder Include="app\models\" />
+    <Folder Include="app\models\account\" />
+    <Folder Include="app\models\hub\" />
+    <Folder Include="app\models\tournament\" />
     <Folder Include="app\models\user\" />
+    <Folder Include="app\forms\" />
+    <Folder Include="app\urls\" />
+    <Folder Include="app\templates\app\layout\" />
+    <Folder Include="app\views\" />
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />
     <Folder Include="app\static\app\content\" />
