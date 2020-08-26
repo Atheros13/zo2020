@@ -53,10 +53,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'honeypot',
+    'django-countries',
 
 ]
 
+## APP SETTINGS
+
+# honey-pot
 HONEYPOT_FIELD_NAME = 'mobilenumber'
+
+# django-countries
+COUNTRIES_FIRST = ['NZ', 'AU', 'UK']
+COUNTRIES_FIRST_REPEAT = True
+COUNTRIES_FIRST_BREAK = ''
 
 # Middleware framework
 # https://docs.djangoproject.com/en/2.1/topics/http/middleware/

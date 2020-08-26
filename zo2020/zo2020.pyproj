@@ -34,7 +34,15 @@
   <ItemGroup>
     <Compile Include="app\forms\forms.py" />
     <Compile Include="app\forms\__init__.py" />
+    <Compile Include="app\models\abstract\person\address.py" />
+    <Compile Include="app\models\abstract\person\name.py" />
+    <Compile Include="app\models\abstract\person\__init__.py" />
+    <Compile Include="app\models\abstract\__init__.py" />
+    <Compile Include="app\models\account\account.py" />
     <Compile Include="app\models\account\__init__.py" />
+    <Compile Include="app\models\generic\person\gender.py" />
+    <Compile Include="app\models\generic\person\__init__.py" />
+    <Compile Include="app\models\generic\__init__.py" />
     <Compile Include="app\models\hub\__init__.py" />
     <Compile Include="app\models\tournament\__init__.py" />
     <Compile Include="app\models\user\user.py" />
@@ -59,8 +67,12 @@
     <Folder Include="app\" />
     <Folder Include="app\migrations\" />
     <Folder Include="app\models\" />
+    <Folder Include="app\models\abstract\person\" />
     <Folder Include="app\models\account\" />
+    <Folder Include="app\models\generic\person\" />
     <Folder Include="app\models\hub\" />
+    <Folder Include="app\models\generic\" />
+    <Folder Include="app\models\abstract\" />
     <Folder Include="app\models\tournament\" />
     <Folder Include="app\models\user\" />
     <Folder Include="app\forms\" />
