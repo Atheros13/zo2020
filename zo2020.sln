@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "zo2020", "zo2020\zo2020.pyproj", "{CDF3D401-98FC-43D2-97D6-09763632DB93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDF3D401-98FC-43D2-97D6-09763632DB93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDF3D401-98FC-43D2-97D6-09763632DB93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDF3D401-98FC-43D2-97D6-09763632DB93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDF3D401-98FC-43D2-97D6-09763632DB93}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D7314BD-FED2-4DD4-88E8-FD7A065F6E1A}
+	EndGlobalSection
+EndGlobal
