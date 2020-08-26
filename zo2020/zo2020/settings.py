@@ -13,6 +13,18 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 import posixpath
 
+## Deployment Safety Measures
+try:
+    f = open('/etc/deploy.txt', 'r').read().split('\n')
+    secretKey = f[0]
+    dbPassword = f[1]
+    emailPassword = f[2]
+    debug_state = False
+except:
+    from zo2020.deploy import *
+    debug_state = True
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,25 +32,31 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '6ea6580f-4ca8-4734-801e-3337033866ce'
+SECRET_KEY = secretKey
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['112.109.84.57', 'localhost']
 
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
 INSTALLED_APPS = [
+
     'app',
-    # Add your apps here to enable them
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'honeypot',
+
 ]
+
+HONEYPOT_FIELD_NAME = 'mobilenumber'
 
 # Middleware framework
 # https://docs.djangoproject.com/en/2.1/topics/http/middleware/
@@ -77,11 +95,14 @@ WSGI_APPLICATION = 'zo2020.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'zo2020',
+        'USER': 'atheros',
+        'PASSWORD': dbPassword, 
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
@@ -110,4 +131,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# Email 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail.zo-sports.com'
+EMAIL_HOST_USER = 'info@zo-sports.com'
+EMAIL_HOST_PASSWORD = emailPassword
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+
+# Login
+
+
+# Custom User 
+AUTH_USER_MODEL = 'app.User'
+LOGIN_REDIRECT_URL = '/user/'
