@@ -4,21 +4,23 @@ from django.db import models
 
 from app.models.user import User
 from app.models.abstract import AbstractName, AbstractAddress
+from app.models.generic import Gender
 
 class Account(models.Model):
 
     ''' The ZO website level account/profile model. This is model belongs to the User() and 
     can be linked to Hub or Tournament Profiles. '''
 
-    # name = AccountName
-    dob = models.DateField()
-    gender = models.ForeignKey(Gender, on_delete=models.CASCADE, related_name='account')
+    user = models.OneToOneField(User, on_delete=models.DELETE, related_name='account')
 
-    phone = None
-    phone2 = None
+    # name = AccountName
+    dob = models.DateField(blank=True, null=True, verbose_name='Date of Birth')
+    gender = models.ForeignKey(Gender, on_delete=models.CASCADE, blank=True, related_name='accounts')
+
+    phone = models.CharField(max_length=20, blank=True, verbose_name='Phone Number')
+    phone2 = models.CharField(max_length=20, blank=True, verbose_name='Additional Phone Number')
     # address = AccountAddress
-    email = models.EmailField()
-    
+    email = self.__email()
 
     ### META DATA ###
 
@@ -27,6 +29,11 @@ class Account(models.Model):
         ''' '''
         return self.name.__str__()
 
+    ### 
+
+    def __email(self):
+
+        return self.user.email
 
 class AccountName(AbstractName):
 

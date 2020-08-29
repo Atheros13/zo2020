@@ -50,7 +50,12 @@
     <Compile Include="app\models\__init__.py" />
     <Compile Include="app\tests.py" />
     <Compile Include="app\urls\__init__.py" />
-    <Compile Include="app\views\views.py" />
+    <Compile Include="app\views\public\AboutView.py" />
+    <Compile Include="app\views\public\ContactView.py" />
+    <Compile Include="app\views\public\HomeView.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\views\public\__init__.py" />
     <Compile Include="app\views\__init__.py" />
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
@@ -65,6 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
+    <Folder Include="app\forms\account\" />
+    <Folder Include="app\forms\hub\" />
+    <Folder Include="app\forms\generic\" />
+    <Folder Include="app\forms\public\" />
+    <Folder Include="app\forms\user\" />
+    <Folder Include="app\forms\tournament\" />
     <Folder Include="app\migrations\" />
     <Folder Include="app\models\" />
     <Folder Include="app\models\abstract\person\" />
@@ -76,8 +87,13 @@
     <Folder Include="app\models\tournament\" />
     <Folder Include="app\models\user\" />
     <Folder Include="app\forms\" />
+    <Folder Include="app\templates\account\" />
+    <Folder Include="app\templates\generic\" />
+    <Folder Include="app\templates\hub\" />
+    <Folder Include="app\templates\tournament\" />
+    <Folder Include="app\templates\public\" />
     <Folder Include="app\urls\" />
-    <Folder Include="app\templates\app\layout\" />
+    <Folder Include="app\templates\generic\layout\" />
     <Folder Include="app\views\" />
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />
@@ -85,7 +101,11 @@
     <Folder Include="app\static\app\fonts\" />
     <Folder Include="app\static\app\scripts\" />
     <Folder Include="app\templates\" />
-    <Folder Include="app\templates\app\" />
+    <Folder Include="app\views\account\" />
+    <Folder Include="app\views\generic\" />
+    <Folder Include="app\views\hub\" />
+    <Folder Include="app\views\tournament\" />
+    <Folder Include="app\views\public\" />
     <Folder Include="zo2020\" />
   </ItemGroup>
   <ItemGroup>
@@ -111,12 +131,14 @@
     <Content Include="app\static\app\scripts\respond.js" />
     <Content Include="app\static\app\scripts\respond.min.js" />
     <Content Include="app\static\app\scripts\_references.js" />
-    <Content Include="app\templates\app\about.html" />
-    <Content Include="app\templates\app\contact.html" />
-    <Content Include="app\templates\app\index.html" />
-    <Content Include="app\templates\app\layout.html" />
-    <Content Include="app\templates\app\login.html" />
-    <Content Include="app\templates\app\loginpartial.html" />
+    <Content Include="app\templates\generic\layout\nav_direction.html" />
+    <Content Include="app\templates\generic\layout\nav_menu.html" />
+    <Content Include="app\templates\generic\layout\nav_login.html" />
+    <Content Include="app\templates\generic\layout\standard.html" />
+    <Content Include="app\templates\public\about.html" />
+    <Content Include="app\templates\public\contact.html" />
+    <Content Include="app\templates\public\home.html" />
+    <Content Include="app\templates\public\login.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>

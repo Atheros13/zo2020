@@ -6,17 +6,22 @@ from datetime import datetime
 from django.urls import path
 from django.contrib import admin
 from django.contrib.auth.views import LoginView, LogoutView
-from app import forms, views
 
+from app import forms
+
+from app.views import PublicHomeView, PublicAboutView, PublicContactView
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('contact/', views.contact, name='contact'),
-    path('about/', views.about, name='about'),
+
+    path('', PublicHomeView.as_view(), name='home'),
+    path('about/', PublicAboutView.as_view(), name='about'),
+    path('contact/', PublicContactView.as_view(), name='contact'),
+
+
     path('login/',
          LoginView.as_view
          (
-             template_name='app/login.html',
+             template_name='public/login.html',
              authentication_form=forms.BootstrapAuthenticationForm,
              extra_context=
              {

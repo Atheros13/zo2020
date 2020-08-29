@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'honeypot',
-    'django-countries',
+    'django_countries',
 
 ]
 
