@@ -16,7 +16,6 @@ class PublicAboutView(View):
             self.template_name,
             {
                 'title':self.title,
-                'message': 'About page',
                 'year':datetime.now().year,
             }
         )

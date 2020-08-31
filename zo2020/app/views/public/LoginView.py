@@ -8,17 +8,19 @@ from app.forms.public import PublicLoginForm
 
 class PublicLoginView(LoginView):
 
-    template_name='public/login.html',
-    authentication_form=PublicLoginForm,
+    template_name='public/login.html'
+    authentication_form = PublicLoginForm
+    message = 'Enter your email and password to log in.'
 
-    def get(self, request, *args, **kwargs):
+    def get_context_data(self, **kwargs):
 
-        return render(
-            request,
-            self.template_name,
-            {
-                'title':'Log in',
-                'message': 'About page',
-                'year':datetime.now().year,
-            }
-        )
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Log in'
+        context['year'] = datetime.now().year
+        context['message'] = self.message
+
+        return context
+
+class PublicRedirectLoginView(PublicLoginView):
+
+    message = 'Please log in.'

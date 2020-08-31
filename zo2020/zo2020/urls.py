@@ -5,9 +5,7 @@ Definition of urls for zo2020.
 from datetime import datetime
 from django.urls import path, include
 from django.contrib import admin
-from django.contrib.auth.views import LoginView, LogoutView
-
-from app import forms
+from django.contrib.auth.views import LogoutView as PublicLogoutView
 
 from app.views.public import PublicHomeView, PublicAboutView, PublicContactView
 from app.views.public import PublicHubsView, PublicTournamentsView, PublicLoginView
@@ -21,9 +19,9 @@ urlpatterns = [
     path('tournaments/', PublicTournamentsView.as_view(), name='public-tournaments'),
     path('contact/', PublicContactView.as_view(), name='public-contact'),
 
-    # LOG IN / OUT
-    path('login/', PublicLoginView.as_view(), name='login'),
-    path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
+    # LOG IN / LOG OUT
+    path('login/', PublicLoginView.as_view(), name='public-login'),
+    path('logout/', PublicLogoutView.as_view(next_page='/'), name='public-logout'),
 
     # ACCOUNT
 

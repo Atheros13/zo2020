@@ -32,8 +32,11 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="app\forms\forms.py" />
     <Compile Include="app\forms\public\LoginForm.py" />
+    <Compile Include="app\forms\public\ContactForm.py" />
+    <Compile Include="app\forms\public\SignupForm.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\forms\public\__init__.py" />
     <Compile Include="app\forms\__init__.py" />
     <Compile Include="app\models\abstract\person\address.py" />
@@ -51,6 +54,9 @@
     <Compile Include="app\models\user\__init__.py" />
     <Compile Include="app\models\__init__.py" />
     <Compile Include="app\tests.py" />
+    <Compile Include="app\urls\account\account.py" />
+    <Compile Include="app\urls\hub\hub.py" />
+    <Compile Include="app\urls\tournament\tournament.py" />
     <Compile Include="app\urls\__init__.py" />
     <Compile Include="app\views\public\LoginView.py" />
     <Compile Include="app\views\public\HubsView.py" />
@@ -99,6 +105,9 @@
     <Folder Include="app\templates\public\" />
     <Folder Include="app\urls\" />
     <Folder Include="app\templates\generic\layout\" />
+    <Folder Include="app\urls\account\" />
+    <Folder Include="app\urls\hub\" />
+    <Folder Include="app\urls\tournament\" />
     <Folder Include="app\views\" />
     <Folder Include="app\static\" />
     <Folder Include="app\static\app\" />
