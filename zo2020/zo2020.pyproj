@@ -33,6 +33,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app\forms\forms.py" />
+    <Compile Include="app\forms\public\LoginForm.py" />
+    <Compile Include="app\forms\public\__init__.py" />
     <Compile Include="app\forms\__init__.py" />
     <Compile Include="app\models\abstract\person\address.py" />
     <Compile Include="app\models\abstract\person\name.py" />
@@ -50,6 +52,9 @@
     <Compile Include="app\models\__init__.py" />
     <Compile Include="app\tests.py" />
     <Compile Include="app\urls\__init__.py" />
+    <Compile Include="app\views\public\LoginView.py" />
+    <Compile Include="app\views\public\HubsView.py" />
+    <Compile Include="app\views\public\TournamentsView.py" />
     <Compile Include="app\views\public\AboutView.py" />
     <Compile Include="app\views\public\ContactView.py" />
     <Compile Include="app\views\public\HomeView.py">
@@ -135,6 +140,7 @@
     <Content Include="app\templates\generic\layout\nav_menu.html" />
     <Content Include="app\templates\generic\layout\nav_login.html" />
     <Content Include="app\templates\generic\layout\standard.html" />
+    <Content Include="app\templates\public\hubs-tournaments.html" />
     <Content Include="app\templates\public\about.html" />
     <Content Include="app\templates\public\contact.html" />
     <Content Include="app\templates\public\home.html" />
