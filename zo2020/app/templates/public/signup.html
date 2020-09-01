@@ -13,14 +13,7 @@
                 <h4>{{ message }}</h4>
                 <hr />
 
-                {% for f in form.field_list %}
-                    <div class="form-group">
-                        <label for="id_{{f.0}}" class="col-md-2 control-label">{{ f.0|title }}</label>
-                        <div class="col-md-10">
-                            {{ f.1 }}
-                        </div>
-                    </div>
-                {% endfor %}
+                {{ form.as_p }}
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">

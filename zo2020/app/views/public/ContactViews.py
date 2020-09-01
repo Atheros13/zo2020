@@ -17,7 +17,7 @@ class PublicContactView(FormView):
 
         context = super().get_context_data(**kwargs)
 
-        context['submit_text'] = 'Submit'
+        context['submit_text'] = 'Send'
         context['title'] = 'Contact'
         context['success_url'] = self.success_url
         context['message'] = 'Send a message'

@@ -55,7 +55,7 @@
     <Compile Include="app\models\user\user.py" />
     <Compile Include="app\models\user\__init__.py" />
     <Compile Include="app\models\__init__.py" />
-    <Compile Include="app\templatetags\getattribute.py">
+    <Compile Include="app\templatetags\testfilter.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\templatetags\__init__.py" />
@@ -67,6 +67,7 @@
     <Compile Include="app\views\generic\contact\ContactSentView.py" />
     <Compile Include="app\views\generic\contact\__init__.py" />
     <Compile Include="app\views\generic\__init__.py" />
+    <Compile Include="app\views\public\SignupViews.py" />
     <Compile Include="app\views\public\LoginView.py" />
     <Compile Include="app\views\public\HubsView.py" />
     <Compile Include="app\views\public\TournamentsView.py" />
@@ -163,6 +164,7 @@
     <Content Include="app\templates\generic\layout\nav_menu.html" />
     <Content Include="app\templates\generic\layout\nav_login.html" />
     <Content Include="app\templates\generic\layout\standard.html" />
+    <Content Include="app\templates\public\signup.html" />
     <Content Include="app\templates\public\hubs-tournaments.html" />
     <Content Include="app\templates\public\about.html" />
     <Content Include="app\templates\public\home.html" />

@@ -7,7 +7,8 @@ from django.urls import path, include
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView as PublicLogoutView
 
-from app.views.public import PublicHomeView, PublicAboutView, PublicLoginView 
+from app.views.public import PublicHomeView, PublicAboutView
+from app.views.public import PublicLoginView, PublicSignupView, PublicSignupSentView
 from app.views.public import PublicHubsView, PublicTournamentsView
 from app.views.public import PublicContactView, PublicContactSentView
 
@@ -20,11 +21,13 @@ urlpatterns = [
     path('tournaments/', PublicTournamentsView.as_view(), name='public-tournaments'),
 
     path('contact/', PublicContactView.as_view(), name='public-contact'),
-    path('contact/sent/', PublicContactSentView.as_view(), name='public-contact-success'),
+    path('contact/sent/', PublicContactSentView.as_view(), name='public-contact-sent'),
 
-    # LOG IN / LOG OUT
+    # LOG IN / LOG OUT / SIGN UP
     path('login/', PublicLoginView.as_view(), name='public-login'),
     path('logout/', PublicLogoutView.as_view(next_page='/'), name='public-logout'),
+    path('signup/', PublicSignupView.as_view(), name='public-signup'),
+    path('signup/sent/', PublicSignupSentView().as_view(), name='public-signup-sent'),
 
     # ACCOUNT
 

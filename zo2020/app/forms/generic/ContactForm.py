@@ -20,16 +20,37 @@ class GenericContactForm(forms.Form):
     field_order = ['name', 'email', 'message']
 
     ## FIELDS 
-    name = forms.CharField(label='Name', max_length=30, min_length=3)
-    email = forms.EmailField(label='Email')
-    message = forms.CharField(label='Message', min_length=10, widget=forms.Textarea)
+    name = forms.CharField(max_length=30, min_length=3,
+                           widget=forms.TextInput({
+                                   'class': 'form-control',
+                                   'placeholder': ''}))
+    email = forms.EmailField(widget=forms.EmailInput({
+                                   'class': 'form-control',
+                                   'placeholder': ''}))
+    message = forms.CharField(min_length=10,
+                               widget=forms.Textarea({
+                                   'class': 'form-control',
+                                   'placeholder': ''}))
+    ## Template Methods
+    def field_list(self):
 
+        '''Returns a list of tuples of 
+        ('string field name', field_reference) that can be used in a
+        template to dynamically create fields in a contact form. '''
+
+        fields = []
+        for field_name in self.field_order:
+            fields.append((field_name, self[field_name]))
+
+        return fields
+            
+    ## Process Methods
     def process_form(self, request, *args, **kwargs):
 
-        ''' '''
+        '''All forms have this method, it can be overwritten to process data
+        as required.'''
 
         self.send_email()
-
 
     def send_email(self, *args, **kwargs):
 
