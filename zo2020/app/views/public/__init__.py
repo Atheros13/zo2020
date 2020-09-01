@@ -5,6 +5,6 @@ from .AboutView import PublicAboutView
 from .HubsView import PublicHubsView
 from .TournamentsView import PublicTournamentsView
 
-from .ContactView import PublicContactView
+from .ContactViews import PublicContactView, PublicContactSentView
 
 from .LoginView import PublicLoginView

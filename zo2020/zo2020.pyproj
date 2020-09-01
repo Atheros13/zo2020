@@ -32,6 +32,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="app\forms\generic\ContactForm.py" />
+    <Compile Include="app\forms\generic\__init__.py" />
     <Compile Include="app\forms\public\LoginForm.py" />
     <Compile Include="app\forms\public\ContactForm.py" />
     <Compile Include="app\forms\public\SignupForm.py">
@@ -53,16 +55,23 @@
     <Compile Include="app\models\user\user.py" />
     <Compile Include="app\models\user\__init__.py" />
     <Compile Include="app\models\__init__.py" />
+    <Compile Include="app\templatetags\getattribute.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\templatetags\__init__.py" />
     <Compile Include="app\tests.py" />
     <Compile Include="app\urls\account\account.py" />
     <Compile Include="app\urls\hub\hub.py" />
     <Compile Include="app\urls\tournament\tournament.py" />
     <Compile Include="app\urls\__init__.py" />
+    <Compile Include="app\views\generic\contact\ContactSentView.py" />
+    <Compile Include="app\views\generic\contact\__init__.py" />
+    <Compile Include="app\views\generic\__init__.py" />
     <Compile Include="app\views\public\LoginView.py" />
     <Compile Include="app\views\public\HubsView.py" />
     <Compile Include="app\views\public\TournamentsView.py" />
     <Compile Include="app\views\public\AboutView.py" />
-    <Compile Include="app\views\public\ContactView.py" />
+    <Compile Include="app\views\public\ContactViews.py" />
     <Compile Include="app\views\public\HomeView.py">
       <SubType>Code</SubType>
     </Compile>
@@ -99,8 +108,11 @@
     <Folder Include="app\models\user\" />
     <Folder Include="app\forms\" />
     <Folder Include="app\templates\account\" />
+    <Folder Include="app\templates\generic\contact\" />
+    <Folder Include="app\templatetags\" />
     <Folder Include="app\templates\generic\" />
     <Folder Include="app\templates\hub\" />
+    <Folder Include="app\templates\custom\" />
     <Folder Include="app\templates\tournament\" />
     <Folder Include="app\templates\public\" />
     <Folder Include="app\urls\" />
@@ -117,6 +129,7 @@
     <Folder Include="app\templates\" />
     <Folder Include="app\views\account\" />
     <Folder Include="app\views\generic\" />
+    <Folder Include="app\views\generic\contact\" />
     <Folder Include="app\views\hub\" />
     <Folder Include="app\views\tournament\" />
     <Folder Include="app\views\public\" />
@@ -145,14 +158,15 @@
     <Content Include="app\static\app\scripts\respond.js" />
     <Content Include="app\static\app\scripts\respond.min.js" />
     <Content Include="app\static\app\scripts\_references.js" />
+    <Content Include="app\templates\generic\contact\sent.html" />
     <Content Include="app\templates\generic\layout\nav_direction.html" />
     <Content Include="app\templates\generic\layout\nav_menu.html" />
     <Content Include="app\templates\generic\layout\nav_login.html" />
     <Content Include="app\templates\generic\layout\standard.html" />
     <Content Include="app\templates\public\hubs-tournaments.html" />
     <Content Include="app\templates\public\about.html" />
-    <Content Include="app\templates\public\contact.html" />
     <Content Include="app\templates\public\home.html" />
+    <Content Include="app\templates\public\contact.html" />
     <Content Include="app\templates\public\login.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>

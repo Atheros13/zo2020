@@ -1,0 +1,1 @@
+from .ContactSentView import GenericContactSentView

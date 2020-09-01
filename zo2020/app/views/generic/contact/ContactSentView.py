@@ -4,10 +4,12 @@ from django.views import View
 
 from datetime import datetime
 
-class PublicContactView(View):
+class GenericContactSentView(View):
 
-    template_name = 'public/contact.html'
-    title = 'Contact'
+    template_name = 'generic/contact/sent.html'
+    title = 'Message Sent'
+    message = 'Your message has been sent to ZO-SPORTS.'
+    next_url_name = 'public-home'    
 
     def get(self, request, *args, **kwargs):
 
@@ -16,7 +18,8 @@ class PublicContactView(View):
             self.template_name,
             {
                 'title':self.title,
-                'message': 'Contact page',
+                'message':self.message,
+                'next_url_name':self.next_url_name,
                 'year':datetime.now().year,
             }
         )
