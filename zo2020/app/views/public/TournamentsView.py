@@ -6,8 +6,8 @@ from datetime import datetime
 
 class PublicTournamentsView(View):
 
-    template_name = 'public/hubs-tournaments.html'
-    title = 'Tournament'
+    template_name = 'public/tournaments.html'
+    title = 'Tournaments'
 
     def get(self, request, *args, **kwargs):
 
@@ -16,7 +16,6 @@ class PublicTournamentsView(View):
             self.template_name,
             {
                 'title':self.title,
-                'message': 'Tournament page',
                 'year':datetime.now().year,
             }
         )

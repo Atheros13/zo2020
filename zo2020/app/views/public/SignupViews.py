@@ -33,5 +33,5 @@ class PublicSignupView(FormView):
 
 class PublicSignupSentView(GenericContactSentView):
 
-    title = 'Signup'
+    title = 'Welcome to ZO-SPORTS'
     message = 'A temporary password has been sent to the email you provided. Please check your spam if it doesn\'t arrive in the next 5 minutes'

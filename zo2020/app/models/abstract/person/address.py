@@ -11,7 +11,7 @@ class AbstractAddress(models.Model):
     line2 = models.CharField(max_length=30, blank=True)
     suburb = models.CharField(max_length=30, blank=True)
     town_city = models.CharField(max_length=30, blank=True)
-    postcode = models.PositiveIntegerField(blank=True)
+    postcode = models.CharField(max_length=13, blank=True)
     country = CountryField()
 
     ### META DATA ###

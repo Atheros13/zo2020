@@ -55,6 +55,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     temporary_password = models.CharField(max_length=50, blank=True)  
     is_verified = models.BooleanField(default=False) 
 
+    # > account = Account()
+
     objects = UserManager()
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

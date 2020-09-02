@@ -15,7 +15,7 @@ class Account(models.Model):
 
     # name = AccountName
     dob = models.DateField(blank=True, null=True, verbose_name='Date of Birth')
-    gender = models.ForeignKey(Gender, on_delete=models.CASCADE, blank=True, related_name='accounts')
+    gender = models.ForeignKey(Gender, on_delete=models.CASCADE, blank=True, null=True, related_name='accounts')
 
     phone = models.CharField(max_length=20, blank=True, verbose_name='Phone Number')
     phone2 = models.CharField(max_length=20, blank=True, verbose_name='Additional Phone Number')
