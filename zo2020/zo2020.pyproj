@@ -32,7 +32,12 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="app\forms\generic\ContactForm.py" />
+    <Compile Include="app\validators\validators.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\validators\__init__.py" />
+    <Compile Include="app\forms\generic\contact\ContactForm.py" />
+    <Compile Include="app\forms\generic\contact\__init__.py" />
     <Compile Include="app\forms\generic\__init__.py" />
     <Compile Include="app\forms\public\LoginForm.py" />
     <Compile Include="app\forms\public\ContactForm.py" />
@@ -92,6 +97,7 @@
   <ItemGroup>
     <Folder Include="app\" />
     <Folder Include="app\forms\account\" />
+    <Folder Include="app\forms\generic\contact\" />
     <Folder Include="app\forms\hub\" />
     <Folder Include="app\forms\generic\" />
     <Folder Include="app\forms\public\" />
@@ -108,6 +114,7 @@
     <Folder Include="app\models\tournament\" />
     <Folder Include="app\models\user\" />
     <Folder Include="app\forms\" />
+    <Folder Include="app\validators\" />
     <Folder Include="app\templates\account\" />
     <Folder Include="app\templates\generic\contact\" />
     <Folder Include="app\templatetags\" />

@@ -1,5 +1,4 @@
 from django.core.mail import send_mail
-
 from django import forms
 
 class GenericContactForm(forms.Form):
@@ -31,19 +30,18 @@ class GenericContactForm(forms.Form):
                                widget=forms.Textarea({
                                    'class': 'form-control',
                                    'placeholder': ''}))
+
     ## Template Methods
     def field_list(self):
 
-        '''Returns a list of tuples of 
-        ('string field name', field_reference) that can be used in a
-        template to dynamically create fields in a contact form. '''
+        '''Returns a list of tuples of ('field name', field_reference) that 
+        can be used in a template to dynamically create fields in a form. '''
 
         fields = []
         for field_name in self.field_order:
             fields.append((field_name, self[field_name]))
-
         return fields
-            
+           
     ## Process Methods
     def process_form(self, request, *args, **kwargs):
 

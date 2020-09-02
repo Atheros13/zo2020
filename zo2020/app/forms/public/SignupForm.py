@@ -2,41 +2,72 @@ from django import forms
 
 from django_countries.fields import CountryField
 
+from app.models import User, Account, AccountName, AccountAddress
+from app.validators import unique_user
+
 class PublicSignupForm(forms.Form):
 
     ''' '''
 
-    firstname = forms.CharField(max_length=30, min_length=1,
+    firstname = forms.CharField(label='First Name', max_length=30, min_length=1,
                            widget=forms.TextInput({
                                    'class': 'form-control',
                                    'placeholder': ''}))
-    lastname = forms.CharField(max_length=30, min_length=1,
+    lastname = forms.CharField(label='Last Name', max_length=30, min_length=1,
                            widget=forms.TextInput({
                                    'class': 'form-control',
                                    'placeholder': ''}))    
     email = forms.EmailField(widget=forms.EmailInput({
                                    'class': 'form-control',
-                                   'placeholder': ''}))
-    dob = forms.EmailField(widget=forms.DateInput({
+                                   'placeholder': ''}),
+                             validators=[unique_user])
+    dob = forms.EmailField(label='Date of Birth', widget=forms.DateInput({
                                    'class': 'form-control',
-                                   'placeholder': ''}))
+                                   'placeholder': 'dd/mm/yy'}))
     country = CountryField().formfield()
 
-    ## Template Methods
-    def field_list(self):
-        
-        return []
 
     ## Process Methods
     def process_form(self, request, *args, **kwargs):
 
-        '''All forms have this method, it can be overwritten to process data
-        as required.'''
+        ''' '''
 
-        pass
+        # Create Models
+        self.build_account(self.build_user())
 
-    def send_email(self, *args, **kwargs):
+        # Send Confirmation/Temporary Password Email
+        self.send_email(user)
 
-        #send_mail(subject, message, email, self.to_emails)
+    def build_user(self):
 
-        pass
+        user = User(email=self.email)
+        user.temporary_password = User.objects.make_random_password()
+        user.set_password(user.temporary_password)
+        user.save()
+
+        return user
+
+    def build_account(self, user):
+
+        account = Account(user=user, dob=self.dob)
+        account.save()
+
+        name = AccountName(account=account,
+                            firstname=self.firstname, lastname=self.lastname)
+        name.save()
+        address = AccountAddress(account=account,
+                                 country=self.country)
+        address.save()
+
+    def send_email(self, user, *args, **kwargs):
+
+        subject = 'ZO-SPORTS: Signup'
+        message = 'Kia ora %s %s\n\n' % (self.firstname, self.lastname)
+
+        message += ''
+        message += ''
+        message += ''
+
+        email = 'no-reply@zo-sports.com'
+
+        send_mail(subject, message, email, [user.email])

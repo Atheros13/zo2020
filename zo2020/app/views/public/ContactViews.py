@@ -26,7 +26,6 @@ class PublicContactView(FormView):
         return context
 
     ## POST level methods
-
     def form_valid(self, form):
 
         form.process_form(self.request)

@@ -11,7 +11,7 @@ class Account(models.Model):
     ''' The ZO website level account/profile model. This is model belongs to the User() and 
     can be linked to Hub or Tournament Profiles. '''
 
-    user = models.OneToOneField(User, on_delete=models.DELETE, related_name='account')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='account')
 
     # name = AccountName
     dob = models.DateField(blank=True, null=True, verbose_name='Date of Birth')
@@ -20,7 +20,6 @@ class Account(models.Model):
     phone = models.CharField(max_length=20, blank=True, verbose_name='Phone Number')
     phone2 = models.CharField(max_length=20, blank=True, verbose_name='Additional Phone Number')
     # address = AccountAddress
-    email = self.__email()
 
     ### META DATA ###
 
@@ -31,14 +30,14 @@ class Account(models.Model):
 
     ### 
 
-    def __email(self):
+    def email(self):
 
         return self.user.email
 
 class AccountName(AbstractName):
 
-    account = models.OneToOneField(Account, on_delete=models.DELETE, related_name='name')
+    account = models.OneToOneField(Account, on_delete=models.CASCADE, related_name='name')
 
 class AccountAddress(AbstractAddress):
 
-    account = models.OneToOneField(Account, on_delete=models.DELETE, related_name='address')
+    account = models.OneToOneField(Account, on_delete=models.CASCADE, related_name='address')

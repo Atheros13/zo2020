@@ -12,7 +12,6 @@ class PublicSignupView(FormView):
     success_url = '/signup/sent'
 
     ## GET level methods
-
     def get_context_data(self, **kwargs):
 
         context = super().get_context_data(**kwargs)
@@ -26,7 +25,6 @@ class PublicSignupView(FormView):
         return context
 
     ## POST level methods
-
     def form_valid(self, form):
 
         form.process_form(self.request)

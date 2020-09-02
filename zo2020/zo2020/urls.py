@@ -27,7 +27,7 @@ urlpatterns = [
     path('login/', PublicLoginView.as_view(), name='public-login'),
     path('logout/', PublicLogoutView.as_view(next_page='/'), name='public-logout'),
     path('signup/', PublicSignupView.as_view(), name='public-signup'),
-    path('signup/sent/', PublicSignupSentView().as_view(), name='public-signup-sent'),
+    path('signup/sent/', PublicSignupSentView.as_view(), name='public-signup-sent'),
 
     # ACCOUNT
 

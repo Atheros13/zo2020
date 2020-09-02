@@ -1,1 +1,1 @@
-from .ContactForm import GenericContactForm
+from .contact import GenericContactForm
