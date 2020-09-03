@@ -29,6 +29,8 @@ urlpatterns = [
     path('login/', PublicLoginView.as_view(), name='public-login'),
     path('logout/', PublicLogoutView.as_view(next_page='/'), name='public-logout'),
 
+    path('login/password-request', PublicPasswordRequest.as_view(), name='public-password-request'),
+
     # ACCOUNT
 
 
