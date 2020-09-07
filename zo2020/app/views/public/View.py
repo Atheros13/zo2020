@@ -4,7 +4,7 @@ from django.views import View
 
 from datetime import datetime
 
-class PublicHomeView(View):
+class PublicView(View):
 
     template_name = 'public/home.html'
     title = 'ZO-Sports'

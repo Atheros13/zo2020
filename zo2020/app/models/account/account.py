@@ -21,6 +21,9 @@ class Account(models.Model):
     phone2 = models.CharField(max_length=20, blank=True, verbose_name='Additional Phone Number')
     # address = AccountAddress
 
+    # hubs_admin = Hub 
+    # hubs_main_contact = Hub
+
     ### META DATA ###
 
     def __str__(self):

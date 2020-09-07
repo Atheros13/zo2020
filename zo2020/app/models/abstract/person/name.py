@@ -25,13 +25,12 @@ class AbstractName(models.Model):
             return self.firstname
         return self.preferred_name
 
+
     ### FUNCTIONS ###
 
     def full_name(self):
 
         return "%s %s" % (self.__str__(), self.lastname)
-
-
 
 
 

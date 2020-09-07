@@ -1,10 +1,15 @@
 from django import forms
 from django.core.mail import send_mail
 
+from datetime import datetime
+
 from django_countries.fields import CountryField
+from django_countries.widgets import CountrySelectWidget
 
 from app.models import User, Account, AccountName, AccountAddress
-from app.validators import unique_user
+from app.custom.validators import unique_user
+
+
 
 class PublicSignupForm(forms.Form):
 
@@ -29,8 +34,8 @@ class PublicSignupForm(forms.Form):
                           widget=forms.DateInput({
                                    'class': 'form-control',
                                    'placeholder': 'dd/mm/yy'}))
-    country = CountryField().formfield()
-
+    country = CountryField().formfield(widget=CountrySelectWidget(
+                                        attrs={"class": "form-control"}))
 
     ## Process Methods
     def process_form(self, request, *args, **kwargs):
@@ -49,6 +54,7 @@ class PublicSignupForm(forms.Form):
 
         user = User(email=data['email'])
         user.temporary_password = User.objects.make_random_password()
+        user.temporary_date = datetime.now()
         user.set_password(user.temporary_password)
         user.save()
 

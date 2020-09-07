@@ -57,7 +57,7 @@ class GenericContactForm(forms.Form):
 
         data = self.cleaned_data
 
-        subject = 'Contact - %s' % self.contact_type
+        subject = 'ZO-SPORTS %s Contact Form' % self.contact_type
         message = ''
         for field in self.field_order:
             if field == 'email':

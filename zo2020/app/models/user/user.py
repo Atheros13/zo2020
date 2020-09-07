@@ -53,6 +53,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
 
     temporary_password = models.CharField(max_length=50, blank=True)  
+    temporary_date = models.DateField(null=True)
+
     is_verified = models.BooleanField(default=False) 
 
     # > account = Account()
@@ -70,7 +72,9 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
 
         ''' '''
-
-        return self.email
+        try:
+            return self.account.name.full_name()
+        except:
+            return self.email
 
 

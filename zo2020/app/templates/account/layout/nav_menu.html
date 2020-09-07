@@ -1,0 +1,51 @@
+﻿{% load index %}
+{% load nav_menu_url %}
+{% load has_hubs %}
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a href="/account/" class="navbar-brand">{{ request.user.account.name.full_name }}</a>
+
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                        <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'account-password' %}">Password</a></li>
+                            <li><a href="{% url 'account-settings' %}">Settings</a></li>
+                        </ul>
+                        </li>
+
+                        {% if user|has_hubs %}
+                            <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hubs<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{% url 'account-home' %}">Open</a></li>
+                                <li><a href="{% url 'account-hubs-create' %}">Create</a></li>
+                            </ul>
+                            </li>
+                        {% endif %}
+
+                        <li><a href="{% url 'account-tournaments' %}">Tournaments</a></li>
+
+                        <li><a href="{% url 'account-contact' %}">Contact</a></li>
+
+                </ul>
+
+                {% include 'generic/layout/nav_login.html' %}
+
+            </div>
+        </div>
+</div>

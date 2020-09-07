@@ -1,5 +1,25 @@
+{% load has_hubs %}
+
 {% if user.is_authenticated %}
-    <li><span class="navbar-brand">Hello {{ user.account.name }}!</span></li>
+
+    {% load url_level %}
+
+    {% if request.path|url_level == "account" %}
+
+        <li><a href="{% url 'public-home' %}">ZO-SPORTS</a></li>
+        
+        {% if not user|has_hubs %}
+            <li><a href="{% url 'account-hubs-create' %}">Create Hub</a></li>
+        {% endif %}
+    
+    {% else %}
+
+        <li><a href="{% url 'account-home' %}">{{ user.account.name.full_name }}</a></li>
+
+    {% endif %}
+
 {% else %}
+
     <li><a href="{% url 'public-signup' %}">Sign up</a></li>
+
 {% endif %}

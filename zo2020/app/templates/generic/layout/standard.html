@@ -11,8 +11,17 @@
 </head>
 
 <body>
+    {% load url_level %}   
+    
+    {% if request.path|url_level == "account" %}
 
-    {% include 'generic/layout/nav_menu.html' %}
+        {% include 'account/layout/nav_menu.html' %}       
+
+    {% else %}
+
+        {% include 'public/layout/nav_menu.html' %}
+
+    {% endif %}
 
     <div class="container body-content">
         {% block content %}{% endblock %}

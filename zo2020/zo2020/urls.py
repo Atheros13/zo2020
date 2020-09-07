@@ -7,15 +7,18 @@ from django.urls import path, include
 from django.contrib import admin
 from django.contrib.auth.views import LogoutView as PublicLogoutView
 
-from app.views.public import PublicHomeView, PublicAboutView
+from app.views.public import PublicView, PublicAboutView
 from app.views.public import PublicLoginView, PublicSignupView, PublicSignupSentView
 from app.views.public import PublicTournamentsView
 from app.views.public import PublicContactView, PublicContactSentView
+from app.views.public import PublicPasswordRequestView, PublicPasswordRequestSentView
+
+from app.urls import urls_account
 
 urlpatterns = [
     
     # PUBLIC
-    path('', PublicHomeView.as_view(), name='public-home'),
+    path('', PublicView.as_view(), name='public-home'),
     path('about/', PublicAboutView.as_view(), name='public-about'),
     path('tournaments/', PublicTournamentsView.as_view(), name='public-tournaments'),
 
@@ -29,10 +32,11 @@ urlpatterns = [
     path('login/', PublicLoginView.as_view(), name='public-login'),
     path('logout/', PublicLogoutView.as_view(next_page='/'), name='public-logout'),
 
-    path('login/password-request', PublicPasswordRequest.as_view(), name='public-password-request'),
+    path('login/password-request/', PublicPasswordRequestView.as_view(), name='public-password-request'),
+    path('login/password-request/sent/', PublicPasswordRequestSentView.as_view(), name='public-password-request-sent'),
 
     # ACCOUNT
-
+    path('account/', include(urls_account)),
 
     # HUB
 
