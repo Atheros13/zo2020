@@ -91,7 +91,7 @@
     <Compile Include="app\urls\__init__.py" />
     <Compile Include="app\views\account\ContactViews.py" />
     <Compile Include="app\views\account\HubsOpenView.py" />
-    <Compile Include="app\views\account\HubsView.py" />
+    <Compile Include="app\views\account\HubsWhatView.py" />
     <Compile Include="app\views\account\PasswordView.py" />
     <Compile Include="app\views\account\HubsCreateViews.py" />
     <Compile Include="app\views\account\SettingsView.py" />

@@ -5,10 +5,10 @@ from django.views import View
 from datetime import datetime
 from django.contrib.auth.mixins import UserPassesTestMixin
 
-class AccountHubsView(UserPassesTestMixin, View):
+class AccountHubsWhatView(UserPassesTestMixin, View):
 
     template_name = 'generic/basic-page.html'
-    title = 'Hubs'
+    title = 'What is a Hub?'
 
     def get(self, request, *args, **kwargs):
 
