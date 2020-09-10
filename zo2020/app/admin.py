@@ -10,10 +10,10 @@ def activate_selected_hubs(modeladmin, request, queryset):
 activate_selected_hubs.short_description = 'Make selected Hubs active'
 
 class HubAdmin(admin.ModelAdmin):
-    list_display = ['name', 'hub_type', 'description', 'email', 'main_contact']
+    list_display = ['name', 'type', 'description', 'email', 'main_contact']
     actions = [activate_selected_hubs]
 
-    def hub_type(self, obj):
+    def type(self, obj):
         return obj.type.id
 
 

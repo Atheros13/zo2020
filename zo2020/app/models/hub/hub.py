@@ -24,7 +24,7 @@ class Hub(models.Model):
     """ """
     is_active = models.BooleanField(default=False)
 
-    hub_type = models.ForeignKey(HubType, on_delete=models.SET_NULL, null=True, related_name='hubs')
+    type = models.ForeignKey(HubType, on_delete=models.SET_NULL, null=True, related_name='hubs')
     description = models.TextField(blank=True)
 
     name = models.CharField(max_length=50)
@@ -33,7 +33,8 @@ class Hub(models.Model):
     phone = models.CharField(max_length=20, blank=True, verbose_name='Phone Number')
     email = models.EmailField(unique=True)
 
-    main_contact = models.ForeignKey(Account, null=True, on_delete=models.SET_NULL, related_name='hubs_main_contact')
+    main_contact = models.ForeignKey(Account, verbose_name='Main Contact', 
+                                     null=True, on_delete=models.SET_NULL, related_name='hubs_main_contact')
 
     # NB: main contact will also be in admins 
     admins = models.ManyToManyField(Account, related_name='hubs_admin')

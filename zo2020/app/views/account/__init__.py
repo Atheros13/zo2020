@@ -5,3 +5,4 @@ from .SettingsView import AccountSettingsView
 from .PasswordView import AccountPasswordView
 from .HubsView import AccountHubsView
 from .HubsCreateViews import AccountHubsCreateView, AccountHubsCreateSentView
+from .HubsOpenView import AccountHubsOpenView

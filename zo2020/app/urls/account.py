@@ -4,7 +4,7 @@ from django.urls import path, include
 from app.views.account import AccountView, AccountSettingsView
 from app.views.account import AccountPasswordView
 from app.views.account import AccountTournamentsView
-from app.views.account import AccountContactView, AccountContactSentView
+from app.views.account import AccountContactView, AccountContactSentView, AccountHubsOpenView
 from app.views.account import AccountHubsView, AccountHubsCreateView, AccountHubsCreateSentView
 
 urls_account = [
@@ -16,6 +16,8 @@ urls_account = [
     path('hubs/', AccountHubsView.as_view(), name='account-hubs'),
     path('hubs/create/', AccountHubsCreateView.as_view(), name='account-hubs-create'),
     path('hubs/create/request-sent', AccountHubsCreateSentView.as_view(), name='account-hubs-request-sent'),
+
+    path('hubs/open', AccountHubsOpenView.as_view(), name='account-hubs-open'),
 
     path('tournaments/', AccountTournamentsView.as_view(), name='account-tournaments'),
 

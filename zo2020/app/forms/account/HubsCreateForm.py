@@ -13,7 +13,12 @@ class AccountHubsCreateForm(forms.Form):
 
     """ """
 
-    type = forms.ModelChoiceField(queryset=HubType.objects.all(),
+    name = forms.CharField(label=_("Hub Name"),
+                               widget=forms.TextInput({
+                                   'class': 'form-control',
+                                   'placeholder':''}))
+    type = forms.ModelChoiceField(label=_("Hub Type"),
+                                  queryset=HubType.objects.all(),
                                           widget=forms.Select({
                                             'class': 'form-control',
                                             'placeholder': ''}),
@@ -24,10 +29,7 @@ class AccountHubsCreateForm(forms.Form):
                                    'placeholder':''}),
                                help_text='Further describe what sort of Hub this is i.e. Catholic Primary School, Kura Kaupapa Y1 - Y8')
 
-    name = forms.CharField(label=_("Hub Name"),
-                               widget=forms.TextInput({
-                                   'class': 'form-control',
-                                   'placeholder':''}))
+
     phone = forms.CharField(label=_("Hub Phone Name"),
                                widget=forms.TextInput({
                                    'class': 'form-control',
@@ -91,13 +93,17 @@ class AccountHubsCreateForm(forms.Form):
 
         data = self.cleaned_data
 
+        duplicates = self.check_hub_duplicates()
+
         # create Hub and save
         description = data['description']
-        description += '\n\n' + data['message']
-        self.hub = Hub(type=data['type'], description=description, name=data['name'],
+        description += '\n-\n' + data['message']
+        self.hub = Hub(description=description, name=data['name'],
                        phone=data['phone'], email=data['email'],
                        main_contact=self.user.account,
                        is_active=False)
+        self.hub.save()
+        self.hub.type=data['type']
         self.hub.admins.add(self.user.account)
         self.hub.save()
 
@@ -110,12 +116,12 @@ class AccountHubsCreateForm(forms.Form):
 
 
         # send email to ZO-Sports - with note about any similar Hubs
-        send_mail('ZO-SPORTS - Hub Request', self.message_to_zosports, 
+        send_mail('ZO-SPORTS - Hub Request', self.message_to_zosports(duplicates), 
                         self.user.email, ['info@zo-sports.com'])
 
 
         # send email to User that requested 
-        send_mail('ZO-SPORTS - Hub Request Received - %s' % self.hub.id, self.message_to_requester, 
+        send_mail('ZO-SPORTS - Hub Request Received - %s' % self.hub.id, self.message_to_requester(), 
                         'no-reply@zo-sports.com', [self.user.email])
 
     def check_hub_duplicates(self):
@@ -126,11 +132,11 @@ class AccountHubsCreateForm(forms.Form):
         data = self.cleaned_data
 
         street = None
-        for word in [i for i in data['line1'] if not i.isdigit()]:
+        for word in [i for i in data['line1'].split() if not i.isdigit()]:
             if len(word) > 3:
                 street = word
                 break
-
+        
         hubs = Hub.objects.filter(
                     address__country=data['country']).filter(
                         address__town_city=data['town_city']).filter(
@@ -138,12 +144,12 @@ class AccountHubsCreateForm(forms.Form):
 
         return hubs
 
-    def message_to_zosports(self):
+    def message_to_zosports(self, duplicates):
 
-        hubs = self.check_hub_duplicates()
+        hubs = duplicates
 
         message = 'HUB %s %s\n' % (self.hub.name, self.hub.id)
-        message += 'REQUESTED BY: %s %s\n\n' % (self.user.__str__())
+        message += 'REQUESTED BY: %s %s\n\n' % (self.user.__str__(), self.user.account.id)
         message += 'TYPE: %s\nNOTES: %s\n\n' % (self.hub.type.__str__(),
                                                                   self.hub.description)
         if hubs:
@@ -153,13 +159,14 @@ class AccountHubsCreateForm(forms.Form):
                                                    hub.address.line1,
                                                    hub.description)
 
-        message += 'www.zo-sports.com/admin/app/hub' #/%s' % self.hub.id #unless this is actually the HubAdmin.id
+        message += '\nwww.zo-sports.com/admin/app/hub\n' #/%s' % self.hub.id #unless this is actually the HubAdmin.id
+        message += 'www.zo-sports.com/admin/app/hub/%s/change' % self.hub.id
 
         return message
 
     def message_to_requester(self):
 
-        message = 'Kia ora %,\n\n' % self.user.__str__()
+        message = 'Kia ora %s,\n\n' % self.user.__str__()
         message += 'We have received your request to create %s as a Hub for ZO-SPORTS.\n' % self.cleaned_data['name']
         message += 'You will only receive a confirmation email if this request is accepted, '
         message += 'and it may take up to 72 hours to hear back.\n\n'

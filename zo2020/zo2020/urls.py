@@ -14,6 +14,7 @@ from app.views.public import PublicContactView, PublicContactSentView
 from app.views.public import PublicPasswordRequestView, PublicPasswordRequestSentView
 
 from app.urls import urls_account
+from app.urls import urls_hub
 
 urlpatterns = [
     
@@ -39,7 +40,7 @@ urlpatterns = [
     path('account/', include(urls_account)),
 
     # HUB
-
+    path('hub/', include(urls_hub)),
 
     # TOURNAMENT
 
