@@ -2,3 +2,4 @@
 may be inherited into AccountName or HubProfileName models. '''
 
 from .person import *
+from .contest import *

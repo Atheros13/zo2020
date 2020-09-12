@@ -7,10 +7,13 @@ from app.models import Tournament
 
 class TournamentGrade(models.Model):
 
-    grade = models.ForeignKey(Grade, on_delete=models.CASCADE, related_name='tournament_grades')
-    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, related_name='tournament_grades')
-    name = models.CharField(max_length=30) # U13 Girls, Under 13 Girls, Under Thirteen Ladies, etc
+
+    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, related_name='grades')
+    grade = models.ForeignKey(Grade, on_delete=models.CASCADE, related_name='tournaments')
+    name = models.CharField(max_length=30, blank=True) # U13 Girls, Under 13 Girls, Under Thirteen Ladies, etc
 
     def __str__(self):
 
+        if self.name == '':
+            return self.contest.__str__()
         return self.name

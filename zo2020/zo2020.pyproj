@@ -50,6 +50,10 @@
     <Compile Include="app\forms\public\PasswordRequestForm.py" />
     <Compile Include="app\forms\validators\validators.py" />
     <Compile Include="app\forms\validators\__init__.py" />
+    <Compile Include="app\models\abstract\contest\contests\contest_distance.py" />
+    <Compile Include="app\models\abstract\contest\contests\contest_time.py" />
+    <Compile Include="app\models\abstract\contest\contests\__init__.py" />
+    <Compile Include="app\models\abstract\contest\__init__.py" />
     <Compile Include="app\models\generic\person\gender\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -68,8 +72,19 @@
     <Compile Include="app\models\seed\seed_rank.py" />
     <Compile Include="app\models\tournament\activity\activity.py" />
     <Compile Include="app\models\tournament\activity\__init__.py" />
+    <Compile Include="app\models\abstract\contest\contest.py" />
+    <Compile Include="app\models\tournament\contest\contests\contest_time_swimming.py" />
+    <Compile Include="app\models\tournament\contest\contests\contest_time_running.py" />
+    <Compile Include="app\models\tournament\equipment\apparatus\apparatus.py" />
+    <Compile Include="app\models\tournament\equipment\apparatus\__init__.py" />
+    <Compile Include="app\models\tournament\equipment\obstacle\obstacle.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\models\tournament\contest\tournament_contest.py" />
+    <Compile Include="app\models\tournament\contest\contests\__init__.py" />
     <Compile Include="app\models\tournament\contest\__init__.py" />
+    <Compile Include="app\models\tournament\equipment\obstacle\__init__.py" />
+    <Compile Include="app\models\tournament\equipment\__init__.py" />
     <Compile Include="app\models\tournament\event\__init__.py" />
     <Compile Include="app\models\tournament\grade\tournament_grade.py" />
     <Compile Include="app\models\tournament\grade\__init__.py" />
@@ -163,6 +178,8 @@
     <Folder Include="app\forms\validators\" />
     <Folder Include="app\migrations\" />
     <Folder Include="app\models\" />
+    <Folder Include="app\models\abstract\contest\" />
+    <Folder Include="app\models\abstract\contest\contests\" />
     <Folder Include="app\models\abstract\person\" />
     <Folder Include="app\models\account\" />
     <Folder Include="app\models\generic\rank\" />
@@ -175,6 +192,10 @@
     <Folder Include="app\models\seed\" />
     <Folder Include="app\models\tournament\" />
     <Folder Include="app\models\tournament\activity\" />
+    <Folder Include="app\models\tournament\contest\contests\" />
+    <Folder Include="app\models\tournament\equipment\apparatus\" />
+    <Folder Include="app\models\tournament\equipment\" />
+    <Folder Include="app\models\tournament\equipment\obstacle\" />
     <Folder Include="app\models\tournament\event\" />
     <Folder Include="app\models\tournament\contest\" />
     <Folder Include="app\models\tournament\grade\" />
