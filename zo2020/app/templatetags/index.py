@@ -6,7 +6,7 @@ register = template.Library()
 @register.filter(name='index')
 def index(indexable, i):
 
-    print(indexable, i)
+    """Returns an item of index i from an iteratable object i.e. a list """
 
     return indexable[i]
 

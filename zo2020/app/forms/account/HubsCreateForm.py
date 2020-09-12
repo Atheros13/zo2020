@@ -6,7 +6,7 @@ from django import forms
 from django_countries.fields import CountryField
 from django_countries.widgets import CountrySelectWidget
 
-from app.custom.validators import unique_hub_email
+from app.forms.validators import unique_hub_email
 from app.models import Hub, HubType, HubAddress
 
 class AccountHubsCreateForm(forms.Form):

@@ -5,3 +5,5 @@ or create them. Example being Gender(), many other models may refer
 to them. '''
 
 from .person import *
+from .grade import *
+from .rank import *

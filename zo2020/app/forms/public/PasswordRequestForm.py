@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 
 from datetime import datetime
 
-from app.custom.validators import is_user
+from app.forms.validators import is_user
 from app.models import User
 
 class PublicPasswordRequestForm(forms.Form):

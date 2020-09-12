@@ -7,7 +7,7 @@ register = template.Library()
 def url_level(obj):
 
     """Returns a string value indicating which level of the website the page 
-    is on i.e. account or hub etc. """
+    is on i.e. account or hub etc.  """
 
     url_parts = obj.split('/')
     if len(url_parts) > 1:

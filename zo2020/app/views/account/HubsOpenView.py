@@ -41,8 +41,8 @@ class AccountHubsOpenView(UserPassesTestMixin, FormView):
     ## POST
     def form_valid(self, form, *args, **kwargs):
 
-        hub = form.process_form(self.request)
-        self.request.session['hub'] = hub
+        hub_id = form.process_form(self.request)
+        self.request.session['hub'] = hub_id
 
         return super().form_valid(form)
 

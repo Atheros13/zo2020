@@ -9,7 +9,7 @@ register = template.Library()
 def has_hubs(user):
 
     """Returns True if the user.account is found in any admins field 
-    in any Hub AND if that Hub is active i.e. not an application. 
+    in any Hub AND if that Hub is active i.e. not still in the request stage. 
     Returns False otherwise. """
 
     if Hub.objects.filter(admins=user.account).filter(is_active=True):

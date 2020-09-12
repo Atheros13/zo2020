@@ -15,10 +15,10 @@ urls_account = [
 
     path('hubs/open', AccountHubsOpenView.as_view(), name='account-hubs-open'),
 
-    path('hubs/what', AccountHubsWhatView.as_view(), name='account-hubs-what'),
-
     path('hubs/create/', AccountHubsCreateView.as_view(), name='account-hubs-create'),
     path('hubs/create/request-sent', AccountHubsCreateSentView.as_view(), name='account-hubs-request-sent'),
+
+    path('hubs/what', AccountHubsWhatView.as_view(), name='account-hubs-what'),
 
     path('tournaments/', AccountTournamentsView.as_view(), name='account-tournaments'),
 

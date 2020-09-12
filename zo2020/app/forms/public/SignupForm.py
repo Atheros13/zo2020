@@ -7,9 +7,7 @@ from django_countries.fields import CountryField
 from django_countries.widgets import CountrySelectWidget
 
 from app.models import User, Account, AccountName, AccountAddress
-from app.custom.validators import unique_user
-
-
+from app.forms.validators import unique_user
 
 class PublicSignupForm(forms.Form):
 

@@ -1,6 +1,4 @@
-﻿{% load index %}
-{% load nav_menu_url %}
-{% load has_hubs %}
+﻿{% load has_hubs %}
 
 
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -33,9 +31,12 @@
                         <ul class="dropdown-menu">
                             {% if user|has_hubs %}
                                 <li><a href="{% url 'account-hubs-open' %}">Open</a></li>
+                                <li><a href="{% url 'account-hubs-create' %}">Create</a></li>
+                                <li><a href="{% url 'account-hubs-what' %}">What is a Hub?</a></li>
+                            {% else %}
+                                <li><a href="{% url 'account-hubs-what' %}">What is a Hub?</a></li>
+                                <li><a href="{% url 'account-hubs-create' %}">Create</a></li>
                             {% endif %}
-                            <li><a href="{% url 'account-hubs-what' %}">What is a Hub?</a></li>
-                            <li><a href="{% url 'account-hubs-create' %}">Create</a></li>
                         </ul>
                         </li>
                         

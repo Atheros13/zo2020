@@ -35,28 +35,50 @@
     <Compile Include="app\admin.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="app\custom\decorators\user_passes_test.py">
+    <Compile Include="app\custom\classes\YearlessDate.py" />
+    <Compile Include="app\custom\classes\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="app\custom\decorators\__init__.py" />
+    <Compile Include="app\custom\model_fields\YearlessDateField.py" />
+    <Compile Include="app\custom\model_fields\__init__.py" />
+    <Compile Include="app\custom\__init__.py" />
     <Compile Include="app\forms\account\HubsCreateForm.py" />
     <Compile Include="app\forms\account\HubsOpenForm.py" />
     <Compile Include="app\forms\account\PasswordForm.py" />
     <Compile Include="app\forms\account\ContactForm.py" />
     <Compile Include="app\forms\account\__init__.py" />
     <Compile Include="app\forms\public\PasswordRequestForm.py" />
+    <Compile Include="app\forms\validators\validators.py" />
+    <Compile Include="app\forms\validators\__init__.py" />
+    <Compile Include="app\models\generic\person\gender\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\generic\grade\age_grade.py" />
+    <Compile Include="app\models\generic\grade\grade.py" />
+    <Compile Include="app\models\generic\grade\__init__.py" />
+    <Compile Include="app\models\generic\rank\rank.py" />
+    <Compile Include="app\models\generic\rank\__init__.py" />
     <Compile Include="app\models\hub\hub.py" />
+    <Compile Include="app\models\seed\seed_age_grade.py" />
+    <Compile Include="app\models\seed\seed_grade.py" />
     <Compile Include="app\models\seed\seed_hub_type.py" />
     <Compile Include="app\models\seed\seed_gender.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="app\templatetags\has_hubs.py" />
-    <Compile Include="app\templatetags\nav_menu_url.py" />
-    <Compile Include="app\templatetags\index.py" />
-    <Compile Include="app\custom\validators\validators.py">
+    <Compile Include="app\models\seed\seed_rank.py" />
+    <Compile Include="app\models\tournament\activity\activity.py" />
+    <Compile Include="app\models\tournament\activity\__init__.py" />
+    <Compile Include="app\models\tournament\contest\tournament_contest.py" />
+    <Compile Include="app\models\tournament\contest\__init__.py" />
+    <Compile Include="app\models\tournament\event\__init__.py" />
+    <Compile Include="app\models\tournament\grade\tournament_grade.py" />
+    <Compile Include="app\models\tournament\grade\__init__.py" />
+    <Compile Include="app\models\tournament\tournament\tournament.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="app\custom\validators\__init__.py" />
+    <Compile Include="app\models\tournament\tournament\__init__.py" />
+    <Compile Include="app\templatetags\has_hubs.py" />
+    <Compile Include="app\templatetags\index.py" />
     <Compile Include="app\forms\generic\contact\ContactForm.py" />
     <Compile Include="app\forms\generic\contact\__init__.py" />
     <Compile Include="app\forms\generic\__init__.py" />
@@ -73,7 +95,7 @@
     <Compile Include="app\models\abstract\__init__.py" />
     <Compile Include="app\models\account\account.py" />
     <Compile Include="app\models\account\__init__.py" />
-    <Compile Include="app\models\generic\person\gender.py" />
+    <Compile Include="app\models\generic\person\gender\gender.py" />
     <Compile Include="app\models\generic\person\__init__.py" />
     <Compile Include="app\models\generic\__init__.py" />
     <Compile Include="app\models\hub\__init__.py" />
@@ -100,6 +122,8 @@
     <Compile Include="app\views\account\__init__.py" />
     <Compile Include="app\views\generic\contact\ContactSentView.py" />
     <Compile Include="app\views\generic\contact\__init__.py" />
+    <Compile Include="app\views\generic\mixins\UserPasswordTestMixin.py" />
+    <Compile Include="app\views\generic\mixins\__init__.py" />
     <Compile Include="app\views\generic\__init__.py" />
     <Compile Include="app\views\hub\View.py" />
     <Compile Include="app\views\hub\__init__.py" />
@@ -127,6 +151,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\" />
+    <Folder Include="app\custom\classes\" />
+    <Folder Include="app\custom\model_fields\" />
     <Folder Include="app\forms\account\" />
     <Folder Include="app\forms\generic\contact\" />
     <Folder Include="app\forms\hub\" />
@@ -134,23 +160,30 @@
     <Folder Include="app\forms\public\" />
     <Folder Include="app\forms\user\" />
     <Folder Include="app\forms\tournament\" />
+    <Folder Include="app\forms\validators\" />
     <Folder Include="app\migrations\" />
     <Folder Include="app\models\" />
     <Folder Include="app\models\abstract\person\" />
     <Folder Include="app\models\account\" />
+    <Folder Include="app\models\generic\rank\" />
     <Folder Include="app\models\generic\person\" />
+    <Folder Include="app\models\generic\grade\" />
+    <Folder Include="app\models\generic\person\gender\" />
     <Folder Include="app\models\hub\" />
     <Folder Include="app\models\generic\" />
     <Folder Include="app\models\abstract\" />
     <Folder Include="app\models\seed\" />
     <Folder Include="app\models\tournament\" />
+    <Folder Include="app\models\tournament\activity\" />
+    <Folder Include="app\models\tournament\event\" />
+    <Folder Include="app\models\tournament\contest\" />
+    <Folder Include="app\models\tournament\grade\" />
+    <Folder Include="app\models\tournament\tournament\" />
     <Folder Include="app\models\user\" />
     <Folder Include="app\forms\" />
-    <Folder Include="app\custom\decorators\" />
     <Folder Include="app\custom\" />
     <Folder Include="app\templates\account\layout\" />
     <Folder Include="app\templates\public\layout\" />
-    <Folder Include="app\custom\validators\" />
     <Folder Include="app\templates\account\" />
     <Folder Include="app\templates\generic\contact\" />
     <Folder Include="app\templatetags\" />
@@ -171,6 +204,7 @@
     <Folder Include="app\views\account\" />
     <Folder Include="app\views\generic\" />
     <Folder Include="app\views\generic\contact\" />
+    <Folder Include="app\views\generic\mixins\" />
     <Folder Include="app\views\hub\" />
     <Folder Include="app\views\tournament\" />
     <Folder Include="app\views\public\" />
