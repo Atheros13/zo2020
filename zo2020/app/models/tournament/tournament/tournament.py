@@ -8,6 +8,8 @@ from app.models.tournament.activity.activity import Activity
 class Tournament(models.Model):
 
     created_by = models.ForeignKey(Account, null=True, on_delete=models.SET_NULL, related_name='tournaments')
+    created_on = models.DateField()
+
     parent_tournament = models.ForeignKey("Tournament", null=True, on_delete=models.SET_NULL, related_name='child_tournaments')
     # >> child_tournaments
 
@@ -22,9 +24,9 @@ class Tournament(models.Model):
     competitor_type = None # i.e. inter-Hub, inter-HubGroup, inter-Participant
     competitor_type_name = models.CharField(max_length=20)
 
-    # >> grades 
-    # >> contests 
-    # >> events  
+    # >> grades = TournamentGrade
+    # >> contests = TournamentContest
+    # >> events = TournamentEvents
 
     def __str__(self):
 

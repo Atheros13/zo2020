@@ -73,8 +73,17 @@
     <Compile Include="app\models\tournament\activity\activity.py" />
     <Compile Include="app\models\tournament\activity\__init__.py" />
     <Compile Include="app\models\abstract\contest\contest.py" />
-    <Compile Include="app\models\tournament\contest\contests\contest_time_swimming.py" />
-    <Compile Include="app\models\tournament\contest\contests\contest_time_running.py" />
+    <Compile Include="app\models\tournament\contest\contests\distance\contest_distance_highest.py" />
+    <Compile Include="app\models\tournament\contest\contests\distance\contest_distance_furthest.py" />
+    <Compile Include="app\models\tournament\contest\contests\distance\__init__.py" />
+    <Compile Include="app\models\tournament\contest\contests\multi\multi.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\tournament\contest\contests\multi\__init__.py" />
+    <Compile Include="app\models\tournament\contest\contests\time\contest_time_fastest.py" />
+    <Compile Include="app\models\tournament\contest\contests\time\contest_time_swimming.py" />
+    <Compile Include="app\models\tournament\contest\contests\time\contest_time_running.py" />
+    <Compile Include="app\models\tournament\contest\contests\time\__init__.py" />
     <Compile Include="app\models\tournament\equipment\apparatus\apparatus.py" />
     <Compile Include="app\models\tournament\equipment\apparatus\__init__.py" />
     <Compile Include="app\models\tournament\equipment\obstacle\obstacle.py">
@@ -193,6 +202,9 @@
     <Folder Include="app\models\tournament\" />
     <Folder Include="app\models\tournament\activity\" />
     <Folder Include="app\models\tournament\contest\contests\" />
+    <Folder Include="app\models\tournament\contest\contests\distance\" />
+    <Folder Include="app\models\tournament\contest\contests\multi\" />
+    <Folder Include="app\models\tournament\contest\contests\time\" />
     <Folder Include="app\models\tournament\equipment\apparatus\" />
     <Folder Include="app\models\tournament\equipment\" />
     <Folder Include="app\models\tournament\equipment\obstacle\" />
