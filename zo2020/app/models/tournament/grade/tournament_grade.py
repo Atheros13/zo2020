@@ -7,13 +7,16 @@ from app.models import Tournament
 
 class TournamentGrade(models.Model):
 
+    """Links a generic Grade model to a specific Tournament and can assign it a 
+    Tournament specific name value i.e. U13 Girls, Under 13 Ladies. If a name 
+    is not provided, then the default self.grade.__str__() is used. """
 
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, related_name='grades')
     grade = models.ForeignKey(Grade, on_delete=models.CASCADE, related_name='tournaments')
-    name = models.CharField(max_length=30, blank=True) # U13 Girls, Under 13 Girls, Under Thirteen Ladies, etc
+    name = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
 
         if self.name == '':
-            return self.contest.__str__()
+            return self.grade.__str__()
         return self.name

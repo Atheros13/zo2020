@@ -18,10 +18,10 @@ class Tournament(models.Model):
     ## ACTIVITY (can be plural)
     activity = models.ManyToManyField(Activity, related_name='tournaments')
 
-    ## TITLE
-    title = models.CharField(max_length=30)
-    title_qualifier = models.CharField(max_length=20) # ? could this be a model with attributes like type/value i.e. annual/2020
-    title_name = models.CharField(max_length=50)
+    ## TITLE (this might need to stay like this for the website v1)
+    title = models.CharField(max_length=30) 
+    title_qualifier = models.CharField(max_length=20) 
+    title_name = models.CharField(max_length=50, blank=True)
 
     description = models.TextField()
 

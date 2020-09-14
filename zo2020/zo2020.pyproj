@@ -54,6 +54,8 @@
     <Compile Include="app\models\abstract\contest\contests\contest_time.py" />
     <Compile Include="app\models\abstract\contest\contests\__init__.py" />
     <Compile Include="app\models\abstract\contest\__init__.py" />
+    <Compile Include="app\models\generic\event\event.py" />
+    <Compile Include="app\models\generic\event\__init__.py" />
     <Compile Include="app\models\generic\person\gender\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -64,6 +66,7 @@
     <Compile Include="app\models\generic\rank\__init__.py" />
     <Compile Include="app\models\hub\hub.py" />
     <Compile Include="app\models\seed\seed_age_grade.py" />
+    <Compile Include="app\models\seed\seed_activity.py" />
     <Compile Include="app\models\seed\seed_grade.py" />
     <Compile Include="app\models\seed\seed_hub_type.py" />
     <Compile Include="app\models\seed\seed_gender.py">
@@ -94,6 +97,7 @@
     <Compile Include="app\models\tournament\contest\__init__.py" />
     <Compile Include="app\models\tournament\equipment\obstacle\__init__.py" />
     <Compile Include="app\models\tournament\equipment\__init__.py" />
+    <Compile Include="app\models\tournament\event\tournament_event.py" />
     <Compile Include="app\models\tournament\event\__init__.py" />
     <Compile Include="app\models\tournament\grade\tournament_grade.py" />
     <Compile Include="app\models\tournament\grade\__init__.py" />
@@ -191,6 +195,7 @@
     <Folder Include="app\models\abstract\contest\contests\" />
     <Folder Include="app\models\abstract\person\" />
     <Folder Include="app\models\account\" />
+    <Folder Include="app\models\generic\event\" />
     <Folder Include="app\models\generic\rank\" />
     <Folder Include="app\models\generic\person\" />
     <Folder Include="app\models\generic\grade\" />
