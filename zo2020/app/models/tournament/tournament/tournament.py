@@ -16,29 +16,33 @@ class Tournament(models.Model):
     # >> child_tournaments
 
     ## ACTIVITY (can be plural)
-    activity = models.ManyToManyField(Activity, related_name='tournaments')
+    activity = models.ManyToManyField(Activity, related_name='tournaments') # i.e. Athletics, Atheltics-Track, Athletics-Field
 
     ## TITLE (this might need to stay like this for the website v1)
     title = models.CharField(max_length=30) 
-    title_qualifier = models.CharField(max_length=20) 
+    title_qualifier = models.CharField(max_length=20, blank=True) 
     title_name = models.CharField(max_length=50, blank=True)
 
     description = models.TextField()
 
-    ## ADMIN
-    hubs = models.ManyToManyField(Hub, related_name='tournaments')
-    admins = models.ManyToManyField(Account, related_name='tournament_admins')
+    ## COMPETITORS (WHO)
+    competitor_type = None # i.e. inter-Hub, inter-HubGroup, inter-Participant
+    competitor_type_name = models.CharField(max_length=20) # i.e. House
+    # >> competitors
 
     ## EVENTS (WHAT)
     # >> grades = TournamentGrade
     # >> contests = TournamentContest
     # >> events = TournamentEvents
 
-    ## COMPETITORS (WHO)
-    competitor_type = None # i.e. inter-Hub, inter-HubGroup, inter-Participant
-    competitor_type_name = models.CharField(max_length=20) # i.e. House
-
+    ## ADMIN
+    hubs = models.ManyToManyField(Hub, related_name='tournaments')
+    admins = models.ManyToManyField(Account, related_name='tournament_admins')
 
     def __str__(self):
 
-        return self.title
+        if self.title_name == '':
+            if self.title_qualifier == '':
+                return self.title
+            return '%s %s' % (self.title, self.title_qualifier)
+        return self.title_name
