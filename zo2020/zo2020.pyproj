@@ -76,6 +76,10 @@
     <Compile Include="app\models\tournament\activity\activity.py" />
     <Compile Include="app\models\tournament\activity\__init__.py" />
     <Compile Include="app\models\abstract\contest\contest.py" />
+    <Compile Include="app\models\tournament\competitor\competitor.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\tournament\competitor\__init__.py" />
     <Compile Include="app\models\tournament\contest\contests\distance\contest_distance_highest.py" />
     <Compile Include="app\models\tournament\contest\contests\distance\contest_distance_furthest.py" />
     <Compile Include="app\models\tournament\contest\contests\distance\__init__.py" />
@@ -216,6 +220,7 @@
     <Folder Include="app\models\tournament\event\" />
     <Folder Include="app\models\tournament\contest\" />
     <Folder Include="app\models\tournament\grade\" />
+    <Folder Include="app\models\tournament\competitor\" />
     <Folder Include="app\models\tournament\tournament\" />
     <Folder Include="app\models\user\" />
     <Folder Include="app\forms\" />
