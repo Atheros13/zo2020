@@ -76,6 +76,8 @@
     <Compile Include="app\models\tournament\activity\activity.py" />
     <Compile Include="app\models\tournament\activity\__init__.py" />
     <Compile Include="app\models\abstract\contest\contest.py" />
+    <Compile Include="app\models\tournament\competitor\tournament_competitor.py" />
+    <Compile Include="app\models\tournament\competitor\participant.py" />
     <Compile Include="app\models\tournament\competitor\competitor.py">
       <SubType>Code</SubType>
     </Compile>
