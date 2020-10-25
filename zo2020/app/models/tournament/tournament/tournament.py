@@ -2,7 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-from app.models import Account, Hub
+from app.models.hub.hub import Hub
+from app.models.account.account import Account
 from app.models.tournament.activity.activity import Activity
 
 class Tournament(models.Model):
@@ -16,7 +17,7 @@ class Tournament(models.Model):
     # >> child_tournaments
 
     ## ACTIVITY (can be plural)
-    activity = models.ManyToManyField(Activity, related_name='tournaments') # i.e. Athletics, Atheltics-Track, Athletics-Field
+    activity = models.ManyToManyField(Activity, related_name='tournaments') # i.e. Swimming, Athletics-Track, Athletics-Field
 
     ## TITLE (this might need to stay like this for the website v1)
     title = models.CharField(max_length=30) 
@@ -26,9 +27,9 @@ class Tournament(models.Model):
     description = models.TextField()
 
     ## COMPETITORS (WHO)
-    competitor_type = None # i.e. inter-Hub, inter-HubGroup, inter-Participant
-    competitor_type_name = models.CharField(max_length=20) # i.e. House
-    # >> competitors
+    tournament_competitor_type = None # i.e. inter-Hub, inter-HubGroup, inter-Participant
+    tournament_competitor_type_name = models.CharField(max_length=20) # i.e. House
+    # >> tournament_competitors
 
     ## EVENTS (WHAT)
     # >> grades = TournamentGrade

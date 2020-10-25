@@ -9,7 +9,7 @@ class ActivityType(models.Model):
 
 class Activity(models.Model):
 
-    type = models.ForeignKey(ActivityType, on_delete=models.PROTECT, related_name='activities')
+    type = models.ForeignKey(ActivityType, null=True, on_delete=models.PROTECT, related_name='activities')
     activity = models.CharField(max_length=30)
     sub_activity = models.CharField(max_length=30)
     description = models.TextField(blank=True)

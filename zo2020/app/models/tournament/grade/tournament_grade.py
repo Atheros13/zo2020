@@ -2,8 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-from app.models import Grade
-from app.models import Tournament
+from app.models.generic.grade import Grade
+from app.models.tournament.tournament import Tournament
 
 class TournamentGrade(models.Model):
 
